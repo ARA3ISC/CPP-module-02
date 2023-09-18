@@ -6,25 +6,26 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:37:27 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/18 14:03:41 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:37:14 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main(void)
-{
-	Fixed a;
-	Fixed b(a);
+int main() {
 
-	Fixed c;
+	Fixed		a;
+	Fixed const	b(34);
+	Fixed const	c(42.42f);
+	Fixed const	d(b);
 
-	c = b;
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
+	a = Fixed(1234.4321f);
+	std::cout << "a is " << a.getRawBits() << std::endl;
+	// std::cout << "b is " << b.getRawBits() << std::endl;
+	// std::cout << "c is " << c.getRawBits() << std::endl;
+	// std::cout << "d is " << d.getRawBits() << std::endl;
 	return 0;
 }
+
 
