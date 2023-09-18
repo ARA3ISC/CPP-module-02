@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:24:23 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/18 20:25:47 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/18 22:12:18 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 Fixed::Fixed():raw(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& old)
 {
 	this->raw = old.raw;
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& old)
 {
 	if (this != &old)
 		this->raw = old.raw;
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	return *this;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
@@ -49,16 +49,18 @@ void Fixed::setRawBits( int const _raw )
 	this->raw = _raw;
 }
 
+// ex01
+
 Fixed::Fixed(const int _raw)
 {
 	this->raw = _raw << this->fbitsnum;
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float _raw)
 {
 	this->raw = roundf(_raw * 256);
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 float Fixed::toFloat( void ) const
@@ -77,3 +79,32 @@ std::ostream& operator<<(std::ostream& output, const Fixed& myObj)
 	return output;
 }
 
+// ex02
+
+Fixed Fixed::operator+(const Fixed& rhs)
+{
+	this->raw = this->raw + rhs.raw;
+	return *this;
+}
+
+Fixed Fixed::operator-(const Fixed& rhs)
+{
+	this->raw = this->raw - rhs.raw;
+	return *this;
+}
+
+// Fixed Fixed::operator*(const Fixed& rhs)
+// {
+// 	// Fixed tmp;
+
+// 	// tmp.raw = this->raw * rhs.raw;
+// 	std::cout << this->raw << " * " << rhs.raw << std::endl;
+// 	// this->raw = this->raw * rhs.raw;
+// 	return Fixed(raw * rhs.raw);
+// }
+
+Fixed Fixed::operator/(const Fixed& rhs)
+{
+	this->raw = this->raw / rhs.raw;
+	return *this;
+}

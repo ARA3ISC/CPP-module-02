@@ -26,7 +26,10 @@ public:
 	int toInt( void ) const;
 
 
-	// Fixed& 
+	Fixed operator+(const Fixed& rhs);
+	Fixed operator-(const Fixed& rhs);
+	// Fixed operator*(const Fixed& rhs);
+	Fixed operator/(const Fixed& rhs);
 
 };
 

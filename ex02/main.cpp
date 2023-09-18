@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:26:20 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/18 20:33:54 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/18 22:13:06 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int main()
 {
-	Fixed a;
-	Fixed b();
+	Fixed a(30.14f);
+	Fixed b(3);
+	// Fixed c(9);
+	Fixed d(a / b);
+
+	std::cout << d << std::endl;
 	return 0;
 }
