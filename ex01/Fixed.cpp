@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:39:11 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/18 18:23:54 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/18 20:00:46 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ Fixed::~Fixed()
 int Fixed::getRawBits(void) const
 {
 	// std::cout << "getRawBits member function called" << std::endl;
-	return this->raw;
+	return (this->raw >> 8);
 }
+
 void Fixed::setRawBits( int const _raw )
 {
 	// std::cout << "setRawBits member function called" << std::endl;
@@ -55,6 +56,22 @@ Fixed::Fixed(const int _raw)
 
 Fixed::Fixed(const float _raw)
 {
-	this->raw = roundf(_raw << this->fbitsnum);
+	this->raw = roundf(_raw * 256);
 	std::cout << "Float constructor called" << std::endl;
+}
+
+float Fixed::toFloat( void ) const
+{
+	return ((float)this->raw / 256);
+}
+
+int Fixed::toInt( void ) const
+{
+	return (this->raw / 256);
+}
+
+std::ostream& operator<<(std::ostream& output, const Fixed& myObj)
+{
+	output << myObj.toFloat();
+	return output;
 }

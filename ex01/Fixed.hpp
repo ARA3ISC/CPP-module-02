@@ -22,6 +22,11 @@ public:
 
 	Fixed(const int _raw);
 	Fixed(const float _raw);
+	float toFloat( void ) const;
+	int toInt( void ) const;
+
 };
+
+std::ostream& operator<<(std::ostream& _cout, const Fixed& myObj);
 
 #endif
