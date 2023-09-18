@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:39:11 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/18 15:36:26 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:23:54 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ void Fixed::setRawBits( int const _raw )
 Fixed::Fixed(const int _raw)
 {
 	this->raw = _raw << this->fbitsnum;
+	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float _raw)
 {
-	this->raw = _raw;
+	this->raw = roundf(_raw << this->fbitsnum);
+	std::cout << "Float constructor called" << std::endl;
 }
