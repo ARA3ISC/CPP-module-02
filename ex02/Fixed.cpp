@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:24:23 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/19 11:05:47 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:49:12 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,4 +181,32 @@ bool Fixed::operator!=(const Fixed &rhs)
 	if (this->raw != rhs.raw)
 		return true;
 	return false;
+}
+
+Fixed& Fixed::min(Fixed& lhs, Fixed& rhs)
+{
+	if (lhs.raw < rhs.raw)
+		return lhs;
+	return rhs;
+}
+
+const Fixed& Fixed::min(const Fixed& lhs, const Fixed& rhs)
+{
+	if (lhs.raw < rhs.raw)
+		return lhs;
+	return rhs;
+}
+
+Fixed& Fixed::max(Fixed& lhs, Fixed& rhs)
+{
+	if (lhs.raw > rhs.raw)
+		return lhs;
+	return rhs;
+}
+
+const Fixed& Fixed::max(const Fixed& lhs, const Fixed& rhs)
+{
+	if (lhs.raw > rhs.raw)
+		return lhs;
+	return rhs;
 }
