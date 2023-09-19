@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:26:20 by maneddam          #+#    #+#             */
-/*   Updated: 2023/09/19 12:35:57 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:11:48 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 
 int main()
 {
-	Point p(2.5f, 4.5f);
+	Point a(3, 7);
+	Point b(-5, 0);
+	Point c(3, -5);
+	Point point(-5, 0);
 
-	std::cout << p.get_x() << std::endl;
-	std::cout << p.get_y() << std::endl;
+	if (bsp(a, b, c, point))
+		std::cout << "dakhel" << std::endl;
+	else
+		std::cout << "kharej" << std::endl;
+
 	return 0;
 }
