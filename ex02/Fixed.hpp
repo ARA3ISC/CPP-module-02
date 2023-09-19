@@ -28,8 +28,20 @@ public:
 
 	Fixed operator+(const Fixed& rhs);
 	Fixed operator-(const Fixed& rhs);
-	// Fixed operator*(const Fixed& rhs);
+	Fixed operator*(const Fixed& rhs) const;
 	Fixed operator/(const Fixed& rhs);
+
+	Fixed operator++();
+	Fixed operator++(int);
+	Fixed operator--();
+	Fixed operator--(int);
+
+	bool operator>(const Fixed& rhs);
+	bool operator>=(const Fixed& rhs);
+	bool operator<(const Fixed& rhs);
+	bool operator<=(const Fixed& rhs);
+	bool operator==(const Fixed& rhs);
+	bool operator!=(const Fixed& rhs);
 
 };
 
